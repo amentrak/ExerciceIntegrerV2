@@ -1,0 +1,149 @@
+
+@startuml
+
+
+class AgendaEntry()  {
+    private int id_agenda;
+    private Date Datedébut;
+    private Date Datefin;
+    public AgendaEntry(int id_agenda){}
+    public Date getDatedébut() {}
+    public Date getDatefin() {}
+    public int getId_agenda() {}
+    public String toString(){}
+    }
+Abstract class Personne {
+    private int id;
+    private String name;
+    private String password;
+    public Personne(String name, int id,String password){}
+    public String getName() {}
+    public int getId(){}
+    public String getPassword(){}
+    public String toString(){}
+}
+class Manager() extends Personne{
+
+    public Manager(String name,int id,String password){super(name,id,password);}
+    }
+class Worker() extends Personne {
+     private ArrayList<Skill> listSkill =new ArrayList<>();
+      private ArrayList<Tache> listTache =new ArrayList<>();
+
+     public Worker(String name, int id, String password) { super(name, id, password); }
+     public ArrayList<Skill> getListSkill() {return listSkill; }
+     public ArrayList<Tache> getListTache() {return listTache; }
+     public void addSkill(Skill i){}
+     }
+class Projet() {
+    private String name;
+    ArrayList<Tache> listTache;
+    Boolean archivage;
+    public Projet (String name){this.name =name;}
+    public String getName() {return name;}
+    public ArrayList<Tache> getListTache() { return listTache;}
+    public void addTache(Tache i){listTache.add(i);}
+    public String toString(){ return name;}
+    }
+class Skill()  {
+    private String name;
+
+    public Skill (String name){this.name =name; }
+    public String getName() { return name;}
+    public String toString(){ return name;}
+}
+class Tache() {
+    private String name;
+    private String description;
+
+    private ArrayList<Ressources> listRessources = new ArrayList<>();
+    private Team équipe;
+    private ArrayList<Skill> listSkill = new ArrayList<>();
+    private AgendaEntry agenda;
+    private ArrayList<Worker> travailleurs = new ArrayList<>();
+    private int durée;
+    private Date deadline;
+
+    public Tache(){}
+    public Tache(String name, String description, ArrayList<Ressources> listRessources, int durée, Date deadline, ArrayList<Skill> listSkill)  }
+    public String getName() { return name;}
+    public String getDescription() { return description;}
+    public ArrayList<Ressources> getListRessources() {return listRessources;}
+    public Team getÉquipe() {return équipe;}
+    public ArrayList<Skill> getListSkill() {return listSkill; }
+    public AgendaEntry getAgenda() { return agenda;}
+    public ArrayList<Worker> getTravailleurs() {return travailleurs;}
+    public Date getDeadline() {return deadline;}
+    public int getDurée() { return durée; }
+    public void addRessources(Ressources i) {listRessources.add(i);}
+    public void addSkills(Skill i) {listSkill.add(i);}
+    public void addtravailleurs(Worker i) { travailleurs.add(i);}
+    public void setAgenda(AgendaEntry agenda) {this.agenda = agenda; }
+    public void setDeadline(Date deadline) {this.deadline = deadline;}
+    public void setDescription(String description) {this.description = description;}
+    public void setDurée(int durée) { this.durée = durée; }
+    public void setListRessources(ArrayList<Ressources> listRessources) { this.listRessources = listRessources;}
+    public void setListSkill(ArrayList<Skill> listSkill) {this.listSkill = listSkill;}
+    public void setName(String name) {this.name = name; }
+    public void setTravailleurs(ArrayList<Worker> travailleurs) {this.travailleurs = travailleurs;}
+    public void setÉquipe(Team équipe) {this.équipe = équipe;}
+    public String toString(){return name;}
+}
+rectangle (Composite) {
+    interface RessourceComponent(){
+        public abstract String getName();
+        public abstract void setName(String n);
+        public abstract  String toString();
+    }
+
+    class Ressources(){
+        private String name;
+            private ArrayList<Stock> listStock = new ArrayList<>();
+
+            public Ressources(String name){ this.name=name;  }
+            public String getName() {  return name; }
+            public void setName(String n) {this.name=name; }
+            public ArrayList<Stock> getListStock(){ return listStock;}
+            public void addStock(Stock i){listStock.add(i);}
+    }
+    class Stock(){
+        private String name;
+            private int quantité;
+            public Stock(String name,int quantité){}
+            public String getName() { return name;}
+            public int getQuantité(){return quantité;}
+            public void setName(String n) { }
+    }
+}
+class Team {
+    public String name;
+    public Worker namechef;
+    ArrayList<Worker> listWorker= new ArrayList<>();
+    public Team(String name, Worker namechef){ }
+    public String getName() {return name;}
+
+    public Worker getNamechef() {return namechef;}
+
+
+    public ArrayList<Worker> getListWorker() {return listWorker;}
+    public void addWorker(Worker i){listWorker.add(i);}
+    public String toString(){ return name; }
+}
+rectangle (Strategy) {
+    interface Strategy(){
+        public abstract String getName();
+        public abstract void setName(String n);
+        public abstract  String toString();
+    }
+
+    class Algo1(){
+
+    }
+    class Algo2(){
+
+    }
+}
+
+"Worker()"-->"Skill()":Est constitué de
+@enduml
+
