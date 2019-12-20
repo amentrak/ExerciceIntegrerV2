@@ -1,6 +1,8 @@
 package be.ac.umons;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +14,7 @@ public class InterfaceConsole {
         ArrayList<Ressources> listRessources = new ArrayList<>();
         ArrayList<Tache> listTaches = new ArrayList<>();
         ArrayList<Team> listTeam = new ArrayList<>();
-
+        ArrayList<Worker>listWorker = new ArrayList<>();
         Stock Bois = new Stock(("Bois"), 4);
         Stock Pierre = new Stock(("Pierre"), 4);
         Stock Eau = new Stock(("Eau"), 4);
@@ -20,9 +22,11 @@ public class InterfaceConsole {
         Ressources1.addStock(Eau);
         Ressources1.addStock(Pierre);
         listSkill.add(new Skill("SKill1"));
+        Worker worker1= new Worker("133",9,"456",listSkill);
+        listWorker.add((new Worker("lol", 2, "1234",listSkill)));
 
-        Worker Worker1 = new Worker("Lou", 1, "456",listSkill);
-        listTeam.add( new Team("Team1", Worker1));
+        listTeam.add(new Team("ttt", worker1,listWorker) );
+
         listPersonne.add(new Worker("Loic", 1, "1234",listSkill));
         listPersonne.add(new Worker("Louis", 2, "1234",listSkill));
         listPersonne.add(new Worker("Loup", 3, "1234",listSkill));
@@ -30,7 +34,16 @@ public class InterfaceConsole {
         listPersonne.add(new Worker("Truc", 5, "1234",listSkill));
         listPersonne.add(new Manager("Manager", 1, "1234"));
         listRessources.add(Ressources1);
-
+        Date aujourdhui = new Date(2019, 8, 15);
+        Tache Tache1=new Tache("name", "desc", listRessources, 8, aujourdhui, listSkill);
+        // test pour verifier que algorithme fonctionne
+        Algo1 Algo = new Algo1();
+        Algo.Assignement(Tache1, listTeam);
+        System.out.print(Tache1.getDatedébut());
+        System.out.print(Tache1.getDatefin());
+        /*for (Tache t: listTaches){
+            System.out.print(Worker1.);
+        }*/
         int variable = 1;
         int j = 1;
         // pour afficher les ressources
@@ -56,7 +69,7 @@ public class InterfaceConsole {
                 if (role.equals("manager")) {
                     System.out.println("Connexion réussie");
 
-                    Tache Tache1 = new Tache();
+                    Tache Tache2 = new Tache();
                     System.out.println("Créer une nouvelle Tache");
                     System.out.println("Entrez son nom: ");
                     Scanner lectureClavier1 = new Scanner(System.in);
@@ -88,8 +101,8 @@ public class InterfaceConsole {
                     System.out.println("Choissisez entre l'algo1 ou algo2 pour affecter la tache ");
                     String nomAlgo = lectureClavier1.next();
                     if (nomAlgo.equals("Algo1")) {
-                        Algo1 Algo = new Algo1();
-                        Algo.Assignement(Tache1, listTeam);
+                        Algo1 Algo1 = new Algo1();
+                        Algo1.Assignement(Tache2, listTeam);
                     } else {System.out.print("Les autres algo sont pas encore optionnel");}
                     }
                     if (role.equals("worker")) {

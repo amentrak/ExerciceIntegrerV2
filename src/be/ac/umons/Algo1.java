@@ -1,19 +1,22 @@
 package be.ac.umons;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Algo1 implements ChoixAlgo {
     private ArrayList<Skill> ListSkills = new ArrayList<>();
     private ArrayList<Skill> SkillsTeam = new ArrayList<>();
     private int durée;
     private Date deadline;
+    private Date dd;
     private Date df;
-    public Algo1(){}
 
     public boolean checkElementsinArray(ArrayList<Skill> fixedArray,ArrayList<Skill> inputArray)
     {
+
         if(fixedArray.size() <= inputArray.size())
         {
             for(var i = 0; i < fixedArray.size() ; i++)
@@ -32,6 +35,8 @@ public class Algo1 implements ChoixAlgo {
     }
 
     public void Assignement(Tache tache, ArrayList<Team> teams){
+        GregorianCalendar gc = new GregorianCalendar();
+        Date deadline;
         ListSkills = tache.getListSkill();
         durée = tache.getDurée();
         deadline = tache.getDeadline();
@@ -50,9 +55,18 @@ public class Algo1 implements ChoixAlgo {
                 for ( int j = 0; j < tache.getÉquipe().getListWorker().size(); j++){
                     for ( int k = 0; j < tache.getÉquipe().getListWorker().get(j).getListSkill().size(); k++) {
                         if (ListSkills.get(i) == tache.getÉquipe().getListWorker().get(j).getListSkill().get(k)) {
-                            df = tache.getÉquipe().getListWorker().get(j).getListTache().get(tache.getÉquipe().getListWorker().get(j).getListTache().size() - 1).getDatefin();
-                            tache.setDatedébut(df);
-                            df.setDate(df.getDate() + durée);
+                            if (tache.getÉquipe().getListWorker().get(j).getListTache().size() != 0) {
+                                dd = tache.getÉquipe().getListWorker().get(j).getListTache().get(tache.getÉquipe().getListWorker().get(j).getListTache().size() - 1).getDatefin();
+                            }
+                            else {
+                                dd = gc.getTime() ;
+                            }
+                            tache.setDatedébut(dd);
+                            gc.setTime(dd);
+                            gc.add(GregorianCalendar.DATE, durée);
+
+                            df = gc.getTime() ;
+
                             if (deadline.compareTo(df) >= 0) {
                                 tache.setDatefin(df);
                                 tache.addtravailleurs(tache.getÉquipe().getListWorker().get(j));

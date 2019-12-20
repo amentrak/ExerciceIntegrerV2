@@ -1,5 +1,6 @@
 package be.ac.umons;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class Tache extends Observable {
     private Date datefin;
 
     public Tache(){}
-    public Tache(String name, String description, ArrayList<Ressources> listRessources, int durée, Date deadline, ArrayList<Skill> listSkill) {
+    public Tache(String name, String description, ArrayList<Ressources> listRessources, int durée, java.sql.Date deadline, ArrayList<Skill> listSkill) {
         this.name = name;
         this.description = description;
         this.durée = durée;

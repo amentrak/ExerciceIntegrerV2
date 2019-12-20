@@ -25,7 +25,9 @@ public class Worker extends Personne {
     public void addTache(Tache i){
         listTache.add(i);
     }
-
+    public void toTaches(){
+        //for
+    }
     @Override
     public void update(Observable observable, Object o) {
 
