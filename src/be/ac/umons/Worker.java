@@ -6,8 +6,10 @@ import java.util.Observer;
 public class Worker extends Personne {
     private ArrayList<Skill> listSkill =new ArrayList<>();
     private ArrayList<Tache> listTache =new ArrayList<>();
-    public Worker(String name, int id, String password) {
-        super(name, id, password);
+    public Worker(String name, int id, String password,ArrayList<Skill> listSkill) {
+        super(name,id,password);
+        this.listSkill=listSkill;
+
     }
 
 

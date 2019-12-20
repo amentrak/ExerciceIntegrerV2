@@ -6,6 +6,8 @@ public class Team {
     public String name;
     public Worker namechef;
     ArrayList<Worker> listWorker= new ArrayList<>();
+    private ArrayList<Skill> listSkill = new ArrayList<>();
+
     public Team(String name, Worker namechef){
         this.name=name;
         this.namechef=namechef;
@@ -26,5 +28,8 @@ public class Team {
     }
     public String toString(){
         return name;
+    }
+    public ArrayList<Skill> getListSkill() {
+        return listSkill;
     }
 }

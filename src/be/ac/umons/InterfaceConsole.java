@@ -16,23 +16,24 @@ public class InterfaceConsole {
         Ressources Ressources1 = new Ressources("Boite");
         Ressources1.addStock(Eau);
         Ressources1.addStock(Pierre);
-        Worker Worker1 = new Worker("Lou", 1, "456");
+        listSkill.add(new Skill("SKill1"));
+
+        Worker Worker1 = new Worker("Lou", 1, "456",listSkill);
         Team Team1 = new Team("Team1", Worker1);
         AgendaEntry Agenda = new AgendaEntry(1);
-        listPersonne.add(new Worker("Loic", 1, "1234"));
-        listPersonne.add(new Worker("Louis", 2, "1234"));
-        listPersonne.add(new Worker("Loup", 3, "1234"));
-        listPersonne.add(new Worker("Lol", 4, "1234"));
-        listPersonne.add(new Worker("Truc", 5, "1234"));
+        listPersonne.add(new Worker("Loic", 1, "1234",listSkill));
+        listPersonne.add(new Worker("Louis", 2, "1234",listSkill));
+        listPersonne.add(new Worker("Loup", 3, "1234",listSkill));
+        listPersonne.add(new Worker("Lol", 4, "1234",listSkill));
+        listPersonne.add(new Worker("Truc", 5, "1234",listSkill));
         listPersonne.add(new Manager("Manager", 1, "1234"));
-        listSkill.add(new Skill("SKill1"));
         listRessources.add(Ressources1);
 
         int variable = 1;
         int j = 1;
 
 
-        System.out.println("Identifiez vous, donnez votre nom et votre mot de passe et donner votre roler( manager,worker, chef équipe");
+        /*System.out.println("Identifiez vous, donnez votre nom et votre mot de passe et donner votre roler( manager,worker, chef équipe");
         Scanner lectureClavier = new Scanner(System.in);
         String name = lectureClavier.next();
         String password = lectureClavier.next();
@@ -95,10 +96,10 @@ public class InterfaceConsole {
                     /*ArrayList<Tache> T =
                     for (Tache t:T){
                         System.out.print(i);
-                    }*/
+                    }
 
                 }
-            }
+            }*/
         }
     }
 

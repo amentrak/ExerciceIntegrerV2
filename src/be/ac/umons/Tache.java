@@ -17,6 +17,8 @@ public class Tache extends Observable {
     private ArrayList<Worker> travailleurs = new ArrayList<>();
     private int durée;
     private Date deadline;
+    private Date datedébut;
+    private Date datefin;
 
     public Tache(){}
     public Tache(String name, String description, ArrayList<Ressources> listRessources, int durée, Date deadline, ArrayList<Skill> listSkill) {
@@ -27,6 +29,7 @@ public class Tache extends Observable {
         this.listSkill = listSkill;
         this.deadline = deadline;
         this.durée = durée;
+
     }
 
     public String getName() {
@@ -52,7 +55,20 @@ public class Tache extends Observable {
     public AgendaEntry getAgenda() {
         return agenda;
     }
+    public Date getDatedébut() {
+        return datedébut;
+    }
 
+    public void setDatefin(Date datefin) {
+        this.datefin = datefin;
+    }
+    public Date getDatefin() {
+        return datefin;
+    }
+
+    public void setDatedébut(Date datedébut) {
+        this.datedébut = datedébut;
+    }
     public ArrayList<Worker> getTravailleurs() {
         return travailleurs;
     }
