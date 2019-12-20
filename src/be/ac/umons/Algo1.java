@@ -10,6 +10,7 @@ public class Algo1 implements ChoixAlgo {
     private int durée;
     private Date deadline;
     private Date df;
+    public Algo1(){}
 
     public boolean checkElementsinArray(ArrayList<Skill> fixedArray,ArrayList<Skill> inputArray)
     {

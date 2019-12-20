@@ -13,7 +13,6 @@ public class Tache extends Observable {
     private ArrayList<Ressources> listRessources = new ArrayList<>();
     private Team équipe;
     private ArrayList<Skill> listSkill = new ArrayList<>();
-    private AgendaEntry agenda;
     private ArrayList<Worker> travailleurs = new ArrayList<>();
     private int durée;
     private Date deadline;
@@ -28,7 +27,6 @@ public class Tache extends Observable {
         this.listRessources = listRessources;
         this.listSkill = listSkill;
         this.deadline = deadline;
-        this.durée = durée;
 
     }
 
@@ -52,9 +50,6 @@ public class Tache extends Observable {
         return listSkill;
     }
 
-    public AgendaEntry getAgenda() {
-        return agenda;
-    }
     public Date getDatedébut() {
         return datedébut;
     }
@@ -91,10 +86,6 @@ public class Tache extends Observable {
 
     public void addtravailleurs(Worker i) {
         travailleurs.add(i);
-    }
-
-    public void setAgenda(AgendaEntry agenda) {
-        this.agenda = agenda;
     }
 
     public void setDeadline(Date deadline) {

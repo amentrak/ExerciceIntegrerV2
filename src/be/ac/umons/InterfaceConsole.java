@@ -11,6 +11,7 @@ public class InterfaceConsole {
         ArrayList<Skill> listSkill = new ArrayList<>();
         ArrayList<Ressources> listRessources = new ArrayList<>();
         ArrayList<Tache> listTaches = new ArrayList<>();
+        ArrayList<Team> listTeam = new ArrayList<>();
 
         Stock Bois = new Stock(("Bois"), 4);
         Stock Pierre = new Stock(("Pierre"), 4);
@@ -21,8 +22,7 @@ public class InterfaceConsole {
         listSkill.add(new Skill("SKill1"));
 
         Worker Worker1 = new Worker("Lou", 1, "456",listSkill);
-        Team Team1 = new Team("Team1", Worker1);
-        AgendaEntry Agenda = new AgendaEntry(1);
+        listTeam.add( new Team("Team1", Worker1));
         listPersonne.add(new Worker("Loic", 1, "1234",listSkill));
         listPersonne.add(new Worker("Louis", 2, "1234",listSkill));
         listPersonne.add(new Worker("Loup", 3, "1234",listSkill));
@@ -33,16 +33,18 @@ public class InterfaceConsole {
 
         int variable = 1;
         int j = 1;
-
+        // pour afficher les ressources
         System.out.println("Afficher les ressource :");
         for(Ressources r:listRessources){
             System.out.println(r.getName());
         }
+        // pour afficher les taches
         System.out.println("Afficher les taches :");
         for (Tache t : listTaches) {
             System.out.println(t.getName());
         }
-        /*System.out.println("Identifiez vous, donnez votre nom et votre mot de passe et donner votre roler( manager,worker, chef équipe");
+        // system de connection
+        System.out.println("Identifiez vous, donnez votre nom et votre mot de passe et donner votre roler( manager,worker, chef équipe");
         Scanner lectureClavier = new Scanner(System.in);
         String name = lectureClavier.next();
         String password = lectureClavier.next();
@@ -86,31 +88,27 @@ public class InterfaceConsole {
                     System.out.println("Choissisez entre l'algo1 ou algo2 pour affecter la tache ");
                     String nomAlgo = lectureClavier1.next();
                     if (nomAlgo.equals("Algo1")) {
-                        //  appeler le startegy
-                    } else {// appeler le strategy}
+                        Algo1 Algo = new Algo1();
+                        Algo.Assignement(Tache1, listTeam);
+                    } else {System.out.print("Les autres algo sont pas encore optionnel");}
                     }
                     if (role.equals("worker")) {
                         System.out.println("Voici votre liste de Tache");
                         ArrayList<Tache> listTache = new ArrayList<>();
                         for (Tache k : listTache) {
                             System.out.print(k.getName());
-                            System.out.println(k.getAgenda().getDatedébut());
+                            System.out.println(k.getDatedébut());
                         }
                     } else {
                         System.out.println("else");
                     }
-                }
-                if (role.equals("worker")){
-                    System.out.println("Votre liste de tache :");
-                    /*ArrayList<Tache> T =
-                    for (Tache t:T){
-                        System.out.print(i);
+
                     }
 
                 }
-            }*/
+            }
         }
-    }
+
 
 
 

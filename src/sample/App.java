@@ -36,7 +36,6 @@ public class App extends Application {
         listSkill.add(new Skill("SKill1"));
         Worker Worker1= new Worker("lou",1,"1234",listS);
         Team Team1= new Team("Team1",Worker1);
-        AgendaEntry Agenda = new AgendaEntry(1);
         listPersonne.add(new Worker("Loic",1,"1234",listS));
         listPersonne.add(new Worker("Louis",2,"1234",listS));
         listPersonne.add(new Worker("Loup",3,"1234",listS));
