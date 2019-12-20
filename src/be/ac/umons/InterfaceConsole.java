@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*
+Projet par Valvekens Zowi, De Bruyn Maxime
+ */
 public class InterfaceConsole {
 
     public static void main(String[] args) {
@@ -36,14 +38,18 @@ public class InterfaceConsole {
         listRessources.add(Ressources1);
         Date aujourdhui = new Date(2019, 8, 15);
         Tache Tache1=new Tache("name", "desc", listRessources, 8, aujourdhui, listSkill);
-        // test pour verifier que algorithme fonctionne
+        // test pour verifier que algorithme fonctionne, la date defin et debut est bien affecté, la team et la quantité des ressources est modifier
         Algo1 Algo = new Algo1();
         Algo.Assignement(Tache1, listTeam);
-        System.out.print(Tache1.getDatedébut());
+        System.out.println("Date de début");
+        System.out.println(Tache1.getDatedébut());
+        System.out.println("Date de fin");
         System.out.print(Tache1.getDatefin());
-        /*for (Tache t: listTaches){
-            System.out.print(Worker1.);
-        }*/
+        System.out.println("Nom de la team");
+        System.out.print(Tache1.getÉquipe().getName());
+        System.out.print(Pierre.getQuantité());
+        // fin du test d'affection
+
         int variable = 1;
         int j = 1;
         // pour afficher les ressources

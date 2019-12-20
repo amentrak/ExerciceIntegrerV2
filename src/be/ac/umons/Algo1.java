@@ -9,6 +9,7 @@ import java.util.GregorianCalendar;
 public class Algo1 implements ChoixAlgo {
     private ArrayList<Skill> ListSkills = new ArrayList<>();
     private ArrayList<Skill> SkillsTeam = new ArrayList<>();
+    private ArrayList<Ressources> ListRessources = new ArrayList<>();
     private int durée;
     private Date deadline;
     private Date dd;
@@ -40,6 +41,7 @@ public class Algo1 implements ChoixAlgo {
         ListSkills = tache.getListSkill();
         durée = tache.getDurée();
         deadline = tache.getDeadline();
+        ListRessources = tache.getListRessources();
 
         for ( int i = 0; i < teams.size(); i++) {
             SkillsTeam = teams.get(i).getListSkill();
@@ -80,6 +82,12 @@ public class Algo1 implements ChoixAlgo {
             }
             if ( ListSkills. size() > tache.getÉquipe().getListWorker().size() ){
                 System.out.println("La tâche ne peut pas être complétement effectuée pour cette date limite");
+            }
+            for ( int i = 0; i < ListRessources.size();i++){
+                ListRessources.get(i).getListStock().size();
+                for ( int j = 0; j <= ListRessources.size();j++){
+                    ListRessources.get(i).getListStock().get(j).setQuantité(ListRessources.get(i).getListStock().get(j).getQuantité() - 1);
+                }
             }
 
         }

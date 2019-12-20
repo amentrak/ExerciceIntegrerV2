@@ -14,7 +14,13 @@ public class Stock  implements RessourceComponent {
         return name;
     }
     public int getQuantité(){return quantité;}
-    public void setName(String n) { }
+    public void setName(String n) {
+        this.name = name;
+    }
+
+    public void setQuantité(int quantité) {
+        this.quantité = quantité;
+    }
 
     @Override
     public void addListener(InvalidationListener invalidationListener) {
