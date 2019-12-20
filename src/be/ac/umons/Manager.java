@@ -4,7 +4,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Manager extends Personne{
-
     public Manager(String name,int id,String password){
         super(name,id,password);
     }

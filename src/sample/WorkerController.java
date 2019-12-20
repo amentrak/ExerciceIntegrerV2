@@ -32,7 +32,7 @@ public class WorkerController  {
     }
     public void setApp(App app) {
         this.app = app;
-        TacheTable.setItems(app.getListTaches());
+        //TacheTable.setItems(app.getListTaches());
 
     }
     private void showPersonDetails(Tache tache) {

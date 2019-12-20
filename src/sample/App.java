@@ -22,7 +22,7 @@ public class App extends Application {
     private ObservableList<Skill> listSkill= FXCollections.observableArrayList();
     private ObservableList<Ressources> listRessources= FXCollections.observableArrayList();
     private ObservableList<Tache> listTaches= FXCollections.observableArrayList();
-
+    private ArrayList<Skill> listS= new ArrayList<>();
     private String name= "Loic";
     public App() {
 
@@ -32,16 +32,17 @@ public class App extends Application {
         Ressources Ressources1= new Ressources("Boite");
         Ressources1.addStock(Eau);
         Ressources1.addStock(Pierre);
-        Worker Worker1= new Worker("lou",1,"1234");
+        listS.add(new Skill("SKill1"));
+        listSkill.add(new Skill("SKill1"));
+        Worker Worker1= new Worker("lou",1,"1234",listS);
         Team Team1= new Team("Team1",Worker1);
         AgendaEntry Agenda = new AgendaEntry(1);
-        listPersonne.add(new Worker("Loic",1,"1234"));
-        listPersonne.add(new Worker("Louis",2,"1234"));
-        listPersonne.add(new Worker("Loup",3,"1234"));
-        listPersonne.add(new Worker("Lol",4,"1234"));
-        listPersonne.add(new Worker("Truc",5,"1234"));
+        listPersonne.add(new Worker("Loic",1,"1234",listS));
+        listPersonne.add(new Worker("Louis",2,"1234",listS));
+        listPersonne.add(new Worker("Loup",3,"1234",listS));
+        listPersonne.add(new Worker("Lol",4,"1234",listS));
+        listPersonne.add(new Worker("Truc",5,"1234",listS));
         listPersonne.add(new Manager("Manager",1,"1234"));
-        listSkill.add(new Skill("SKill1"));
         listRessources.add(Ressources1);
         //listTaches.add(new Tache("TAche1","Lolilol",Agenda,Team1));
     }

@@ -10,6 +10,8 @@ public class InterfaceConsole {
         ArrayList<Personne> listPersonne = new ArrayList<>();
         ArrayList<Skill> listSkill = new ArrayList<>();
         ArrayList<Ressources> listRessources = new ArrayList<>();
+        ArrayList<Tache> listTaches = new ArrayList<>();
+
         Stock Bois = new Stock(("Bois"), 4);
         Stock Pierre = new Stock(("Pierre"), 4);
         Stock Eau = new Stock(("Eau"), 4);
@@ -32,7 +34,14 @@ public class InterfaceConsole {
         int variable = 1;
         int j = 1;
 
-
+        System.out.println("Afficher les ressource :");
+        for(Ressources r:listRessources){
+            System.out.println(r.getName());
+        }
+        System.out.println("Afficher les taches :");
+        for (Tache t : listTaches) {
+            System.out.println(t.getName());
+        }
         /*System.out.println("Identifiez vous, donnez votre nom et votre mot de passe et donner votre roler( manager,worker, chef équipe");
         Scanner lectureClavier = new Scanner(System.in);
         String name = lectureClavier.next();
@@ -103,5 +112,5 @@ public class InterfaceConsole {
         }
     }
 
-}
+
 
